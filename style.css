@@ -1,0 +1,309 @@
+/* =========================================================
+   Essetara: Manifest – Official Game Website
+   Main stylesheet (css/style.css)
+
+   Color palette
+   Background:  #11151A  (near-black charcoal)
+   Text:        #E7E9E6  (soft white)
+   Primary:     #625A9B  (blue violet)
+   Secondary:   #4E5A8A  (deep indigo)
+   Accent:      #C9AE63  (muted antique gold)
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+/* ===== BASE PAGE STYLES ===== */
+body {
+  margin: 0;
+  background-color: #11151A;
+  color: #E7E9E6;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+#wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+}
+
+h2 {
+  color: #C9AE63;
+  font-size: 1.6em;
+  margin-top: 0;
+}
+
+/* ===== HEADER ===== */
+header {
+  text-align: center;
+  padding: 2em 1em 0 1em;
+  border-bottom: 1px solid #4E5A8A;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+header h1 a {
+  color: #E7E9E6;
+  text-decoration: none;
+}
+
+.tagline {
+  margin-top: 0.25em;
+  color: #C9AE63;
+  font-size: 0.9em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Future logo image (add the <img> in index.html when ready) */
+.logo {
+  display: block;
+  max-width: 120px;
+  margin: 0 auto 1em auto;
+}
+
+/* ===== NAVIGATION ===== */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+nav li {
+  border-top: 1px solid #4E5A8A;
+}
+
+nav a {
+  display: block;
+  padding: 0.75em;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+nav a:link,
+nav a:visited {
+  color: #E7E9E6;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #C9AE63;
+}
+
+/* Highlights the page the visitor is currently on */
+nav a.current {
+  color: #C9AE63;
+  border-bottom: 2px solid #C9AE63;
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+  padding: 1.5em 1em;
+}
+
+/* ===== HERO SECTIONS (Welcome and Alpha Playtest) =====
+   Each background has two layers:
+   1. A dark gradient on top so the text stays readable.
+   2. The artwork image underneath.
+   If an image file is missing, the gradient and the
+   background-color still display, so the page looks finished. */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  margin-bottom: 2em;
+  padding: 2em 1em;
+  background-color: #1B2030;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #4E5A8A;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* IMAGE: replace images/hero-welcome.jpg with your Welcome artwork */
+#welcome {
+  min-height: 420px;
+  background-image: linear-gradient(rgba(17, 21, 26, 0.2), rgba(17, 21, 26, 0.9)),
+                    url(../images/hero-welcome.jpg),
+                    linear-gradient(135deg, #2A2550, #11151A);
+}
+
+/* IMAGE: replace images/hero-playtest.jpg with your Playtest artwork */
+#playtest {
+  background-image: linear-gradient(rgba(17, 21, 26, 0.2), rgba(17, 21, 26, 0.9)),
+                    url(../images/hero-playtest.jpg),
+                    linear-gradient(135deg, #11151A, #2E3558);
+}
+
+.hero-text {
+  max-width: 40em;
+  padding: 1.5em;
+  background-color: rgba(17, 21, 26, 0.6);
+  border: 1px solid rgba(201, 174, 99, 0.4);
+  border-radius: 6px;
+}
+
+#welcome h2 {
+  font-size: 2em;
+}
+
+/* ===== CONTENT CARDS (Explore the World and Learn the Game) ===== */
+.card {
+  display: flex;
+  align-items: flex-end;
+  min-height: 320px;
+  margin-bottom: 2em;
+  background-color: #1B2030;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #4E5A8A;
+  border-radius: 6px;
+}
+
+/* IMAGE: World artwork (images/card-world.jpg)
+   background-position keeps the character on the left side in view */
+#explore-card {
+  background-image: linear-gradient(rgba(17, 21, 26, 0.2), rgba(17, 21, 26, 0.9)),
+                    url(../images/card-world.jpg),
+                    linear-gradient(160deg, #3A3470, #11151A);
+  background-position: 15% center;
+}
+
+/* IMAGE: replace images/card-rules.jpg with your Rules artwork */
+#learn-card {
+  background-image: linear-gradient(rgba(17, 21, 26, 0.3), rgba(17, 21, 26, 0.9)),
+                    url(../images/card-rules.jpg),
+                    linear-gradient(160deg, #2E3A66, #11151A);
+}
+
+.card-text {
+  padding: 1.5em;
+}
+
+/* ===== BUTTONS ===== */
+.button {
+  display: inline-block;
+  margin: 0.5em 0.25em 0 0.25em;
+  padding: 0.7em 1.5em;
+  background-color: #625A9B;
+  color: #FFFFFF;
+  text-decoration: none;
+  border: 1px solid #C9AE63;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #4E5A8A;
+}
+
+/* Second-style button with a transparent background */
+.button-outline {
+  background-color: transparent;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 2em 1em;
+  border-top: 1px solid #4E5A8A;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.footer-links {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer-links li {
+  display: inline-block;
+  margin: 0.25em 0.75em;
+}
+
+footer a:link,
+footer a:visited {
+  color: #C9AE63;
+}
+
+footer a:hover,
+footer a:focus {
+  color: #E7E9E6;
+}
+
+/* ===== TABLET AND LARGER (600px and up) ===== */
+@media (min-width: 600px) {
+  header h1 {
+    font-size: 2.6em;
+  }
+
+  /* Navigation becomes a horizontal bar */
+  nav ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  nav li {
+    border-top: none;
+  }
+
+  nav a {
+    padding: 1em 1.25em;
+  }
+
+  /* The two cards sit side by side and share the width equally */
+  .card-row {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+  }
+
+  .card {
+    flex: 1;
+  }
+
+  /* Welcome box takes the same shape as hero-welcome.jpg (1920 x 800),
+     so the whole image shows without the top or bottom being cut off.
+     If you replace the image with one of a different size,
+     update these two numbers to match its width and height. */
+  #welcome {
+    min-height: 0;
+    aspect-ratio: 1920 / 800;
+  }
+}
+
+/* ===== DESKTOP (1024px and up) ===== */
+@media (min-width: 1024px) {
+  header h1 {
+    font-size: 3.2em;
+  }
+
+  main {
+    padding: 2em;
+  }
+
+  .hero {
+    min-height: 380px;
+  }
+
+  #welcome h2 {
+    font-size: 2.6em;
+  }
+}
