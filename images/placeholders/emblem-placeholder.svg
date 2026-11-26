@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Placeholder emblem used until faction artwork is ready -->
+  <rect width="200" height="200" fill="#1B2030"/>
+  <path d="M100 25 L145 80 L100 135 L55 80 Z" fill="none" stroke="#C9AE63" stroke-width="5"/>
+  <circle cx="100" cy="80" r="12" fill="#C9AE63"/>
+  <text x="100" y="168" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#E7E9E6">Faction Emblem</text>
+</svg>

@@ -1,0 +1,1 @@
+{"schema":"summer.web-template-profile.v1","executionProfile":"summer-web-jspi-v1","webgpu":true,"threads":false,"dynamicLinking":false,"memory":{"addressBits":32,"shared":false,"initialBytes":33554432,"maximumBytes":2147483648}}

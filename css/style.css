@@ -15,6 +15,12 @@
 }
 
 /* ===== BASE PAGE STYLES ===== */
+
+/* Jump links (like the faction links) glide to their section instead of jumping */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background-color: #11151A;
@@ -29,7 +35,9 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3,
+h4 {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: normal;
   letter-spacing: 0.08em;
@@ -219,6 +227,221 @@ main {
   background-color: transparent;
 }
 
+/* =========================================================
+   FACTIONS & CHARACTERS PAGE (factions.html)
+   ========================================================= */
+
+/* ----- Page banner ----- */
+.page-banner {
+  margin-bottom: 1.5em;
+  padding: 2em 1em;
+  background-color: #1B2030;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #625A9B;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.page-banner h2 {
+  margin-bottom: 0.25em;
+  font-size: 2.2em;
+}
+
+.page-banner p {
+  margin: 0;
+}
+
+/* IMAGE: replace images/banner-factions.jpg with your Factions banner artwork */
+#factions-banner {
+  background-image: linear-gradient(rgba(17, 21, 26, 0.4), rgba(17, 21, 26, 0.8)),
+                    url(../images/banner-factions.jpg),
+                    linear-gradient(135deg, #2A2550, #11151A 50%, #2E3558);
+}
+
+/* ----- Faction jump links ----- */
+.faction-nav {
+  margin-bottom: 2em;
+}
+
+.faction-nav li {
+  margin: 0.4em;
+  border-top: none;
+}
+
+.faction-nav a {
+  padding: 0.6em 2em;
+  background-color: rgba(98, 90, 155, 0.35);
+  border: 1px solid #8E86C8;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.faction-nav a:hover,
+.faction-nav a:focus {
+  background-color: #625A9B;
+  color: #E7E9E6;
+}
+
+/* ----- Faction sections ----- */
+.faction {
+  margin-bottom: 2em;
+  background-color: #151A24;
+  border: 1px solid #625A9B;
+  border-radius: 6px;
+}
+
+/* Faction header: emblem, name, motto, and overview */
+.faction-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  padding: 1.5em;
+  background-color: #1B2030;
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid #4E5A8A;
+  border-radius: 6px 6px 0 0;
+  text-align: center;
+}
+
+/* IMAGES: faction header backgrounds. The gradient keeps the left side
+   dark for the text and lets the artwork show on the right. */
+#order-of-absolution .faction-header {
+  background-image: linear-gradient(to right, rgba(17, 21, 26, 0.95) 40%, rgba(17, 21, 26, 0.4)),
+                    url(../images/faction-absolution.jpg),
+                    linear-gradient(to right, #1B2030, #3A2E4A);
+}
+
+#esses-chosen .faction-header {
+  background-image: linear-gradient(to right, rgba(17, 21, 26, 0.95) 40%, rgba(17, 21, 26, 0.4)),
+                    url(../images/faction-chosen.jpg),
+                    linear-gradient(to right, #1B2030, #24384A);
+}
+
+#horizon-industries .faction-header {
+  background-image: linear-gradient(to right, rgba(17, 21, 26, 0.95) 40%, rgba(17, 21, 26, 0.4)),
+                    url(../images/faction-horizon.jpg),
+                    linear-gradient(to right, #1B2030, #2E3558);
+}
+
+/* Emblems sit on a light tile so their dark details (the Order's ring,
+   New Horizon's navy stripes) stay visible against the dark page.
+   object-fit: contain shows the whole emblem without cropping. */
+.emblem {
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
+  padding: 4px;
+  object-fit: contain;
+  background-image: radial-gradient(#E7E9E6, #A9ADBE);
+  border: 1px solid #C9AE63;
+  border-radius: 4px;
+}
+
+.faction-intro h3 {
+  margin: 0;
+  color: #C9AE63;
+  font-size: 1.8em;
+}
+
+.faction-motto {
+  margin: 0 0 0.5em 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+}
+
+.faction-intro p {
+  max-width: 45em;
+}
+
+/* ----- Character cards ----- */
+.character-row {
+  padding: 1em;
+}
+
+/* On phones the portrait sits above the text; from 600px up it moves beside it */
+.character-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1.5em;
+  padding: 1em;
+  background-color: #1B2030;
+  border: 1px solid #625A9B;
+  border-radius: 6px;
+}
+
+.character-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Every portrait displays at the same size, whatever the image's original size */
+.portrait {
+  width: 110px;
+  height: 150px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border: 1px solid #8E86C8;
+  border-radius: 4px;
+}
+
+.character-info h4 {
+  margin: 0 0 0.4em 0;
+  color: #C9AE63;
+  font-size: 1.25em;
+}
+
+.character-info h5 {
+  margin: 0.75em 0 0.25em 0;
+  padding-top: 0.75em;
+  border-top: 1px solid rgba(201, 174, 99, 0.5);
+  color: #C9AE63;
+  font-size: 0.95em;
+  font-weight: normal;
+}
+
+.character-info p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+/* =========================================================
+   GAME PAGE (game.html)
+   ========================================================= */
+
+#game-banner {
+  background-image: linear-gradient(rgba(17, 21, 26, 0.4), rgba(17, 21, 26, 0.8)),
+                    url(../images/hero-playtest.jpg),
+                    linear-gradient(135deg, #2A2550, #11151A 50%, #2E3558);
+}
+
+/* Gold-trimmed box around the game */
+.game-frame-box {
+  margin-bottom: 1.5em;
+  padding: 0.5em;
+  background-color: #151A24;
+  border: 1px solid #C9AE63;
+  border-radius: 6px;
+}
+
+/* The game fills the box's width and keeps its 16:9 widescreen shape */
+.game-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background-color: #000000;
+}
+
+.game-notes {
+  margin-bottom: 2em;
+  text-align: center;
+}
+
 /* ===== FOOTER ===== */
 footer {
   padding: 2em 1em;
@@ -287,6 +510,27 @@ footer a:focus {
     min-height: 0;
     aspect-ratio: 1920 / 800;
   }
+
+  /* Factions page: emblem sits beside the faction text,
+     separated by a thin gold line */
+  .faction-header {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .faction-intro {
+    padding-left: 1.5em;
+    border-left: 2px solid #C9AE63;
+  }
+
+  .character-row {
+    padding: 1.5em;
+  }
+
+  .character-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 
 /* ===== DESKTOP (1024px and up) ===== */
@@ -305,5 +549,21 @@ footer a:focus {
 
   #welcome h2 {
     font-size: 2.6em;
+  }
+
+  /* Factions page: three character cards side by side, equal width */
+  .character-row {
+    display: flex;
+    gap: 1.25em;
+  }
+
+  .character-card {
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  .portrait {
+    width: 95px;
+    height: 130px;
   }
 }

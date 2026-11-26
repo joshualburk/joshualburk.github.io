@@ -1,0 +1,8 @@
+# Files git should NOT upload to GitHub
+
+# Unused/original artwork kept only on this computer
+Archive/
+
+# Windows system files
+Thumbs.db
+desktop.ini

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="300" height="400">
+  <!-- Placeholder portrait used until character artwork is ready -->
+  <rect width="300" height="400" fill="#2A3045"/>
+  <circle cx="150" cy="150" r="62" fill="#4A5270"/>
+  <path d="M40 400 C40 290 90 245 150 245 C210 245 260 290 260 400 Z" fill="#4A5270"/>
+  <text x="150" y="375" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#E7E9E6">Portrait</text>
+</svg>

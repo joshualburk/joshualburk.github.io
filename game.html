@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Play the Demo – Essetara: Manifest</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Play the Essetara: Manifest alpha demo in your browser.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="wrapper">
+
+    <!-- ===== HEADER: game title and navigation ===== -->
+    <header>
+      <h1><a href="index.html">Essetara: Manifest</a></h1>
+      <p class="tagline">Official Game Website</p>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="factions.html">Factions &amp; Characters</a></li>
+          <li><a href="rules.html">Rules</a></li>
+          <li><a href="game.html" class="current">Game</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- ===== PAGE BANNER ===== -->
+      <section id="game-banner" class="page-banner">
+        <h2>Play the Alpha Demo</h2>
+        <p>An early prototype of Essetara: Manifest. Expect placeholder art and debug controls.</p>
+      </section>
+
+      <!-- ===== GAME: the exported game lives in the demo/ folder.
+           To update it, replace the files in demo/ with a new web export. ===== -->
+      <section class="game-frame-box">
+        <iframe class="game-frame"
+                src="demo/index.html"
+                title="Essetara: Manifest alpha demo"
+                allow="fullscreen; autoplay; gamepad"></iframe>
+      </section>
+
+      <!-- ===== NOTES FOR PLAYERS ===== -->
+      <section class="game-notes">
+        <p>The demo can take a few moments to load. It runs best in a current version of Chrome or Edge on a computer with a mouse.</p>
+        <a href="demo/index.html" class="button" target="_blank">Open in Full Window</a>
+        <a href="feedback.html" class="button button-outline">Give Feedback</a>
+      </section>
+
+    </main>
+
+    <!-- ===== FOOTER: copyright, links, and contact ===== -->
+    <footer>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="factions.html">Factions &amp; Characters</a></li>
+        <li><a href="rules.html">Rules</a></li>
+        <li><a href="game.html">Game</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+
+      <!-- Replace YOUR-EMAIL@example.com with your real contact email (in both places below) -->
+      <p>Contact: <a href="mailto:YOUR-EMAIL@example.com">YOUR-EMAIL@example.com</a></p>
+
+      <p>&copy; 2026 Essetara: Manifest. All rights reserved.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
