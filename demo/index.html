@@ -112,9 +112,8 @@ body {
 		<script src="index.js"></script>
 		<!-- //SUMMER START -->
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":202548,"index.wasm":52300818},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"renderingDriver":"webgpu","summerWebProfile":"summer-web-jspi-v1"};
+const GODOT_CONFIG = {"args":["--rendering-method","gl_compatibility","--rendering-driver","opengl3"],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":202548,"index.wasm":44586372},"focusCanvas":true,"gdextensionLibs":[],"renderingDriver":"opengl3","summerWebProfile":"summer-web-compat-v1"};
 const GODOT_THREADS_ENABLED = false;
-const GODOT_RENDERING_DRIVER = (GODOT_CONFIG['renderingDriver'] || '');
 const engine = new Engine(GODOT_CONFIG);
 
 (function () {
@@ -168,21 +167,16 @@ const engine = new Engine(GODOT_CONFIG);
 
 	// An older Engine wrapper must not silently ignore an explicit profile.
 	if (GODOT_CONFIG['summerWebProfile']
-		&& ((GODOT_CONFIG['summerWebProfile'] !== 'summer-web-jspi-v1'
-			&& GODOT_CONFIG['summerWebProfile'] !== 'summer-web-jspi-memory64-v1')
-		|| typeof engine.getSummerWebProfile !== 'function' || typeof engine.stopSummerWeb !== 'function')) {
+		&& ((GODOT_CONFIG['summerWebProfile'] !== 'summer-web-compat-v1')
+			|| typeof engine.getSummerWebProfile !== 'function' || typeof engine.stopSummerWeb !== 'function')) {
 		displayFailureNotice('The selected runtime does not support the requested Summer Web execution profile. Re-export with a matching template.');
 		return;
 	}
 
 	const missing = Engine.getMissingFeatures({
 		threads: GODOT_THREADS_ENABLED,
-		webgl: GODOT_RENDERING_DRIVER !== 'webgpu',
+		webgl: true,
 	});
-
-	if (GODOT_RENDERING_DRIVER === 'webgpu' && (typeof navigator === 'undefined' || !navigator.gpu)) {
-		missing.push('WebGPU (try Chrome, Edge, or Firefox)');
-	}
 
 	if (missing.length !== 0) {
 		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
@@ -219,11 +213,6 @@ const engine = new Engine(GODOT_CONFIG);
 		}
 	} else {
 		setStatusMode('progress');
-		// Show WebGPU initialization status if applicable.
-		if (GODOT_RENDERING_DRIVER === 'webgpu') {
-			setStatusNotice('Initializing WebGPU...');
-			setStatusMode('notice');
-		}
 		engine.startGame({
 			'onProgress': function (current, total) {
 				setStatusMode('progress');
