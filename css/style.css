@@ -171,6 +171,53 @@ main {
   font-size: 2em;
 }
 
+/* ===== THE LOST HOUR (story section under Welcome) =====
+   A dark, mostly-text panel. The top gradient is very dark so the long
+   text stays easy to read. Add images/lost-hour.jpg later if you want
+   artwork behind it; until then the purple glow gradient shows. */
+#lost-hour {
+  margin-bottom: 2em;
+  padding: 2em 1.25em;
+  background-color: #1B2030;
+  background-image: linear-gradient(rgba(17, 21, 26, 0.8), rgba(17, 21, 26, 0.95)),
+                    url(../images/lost-hour.jpg),
+                    radial-gradient(circle at top, #3A3470, #11151A 70%);
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #4E5A8A;
+  border-radius: 6px;
+}
+
+/* Keeps the lines a comfortable reading length on wide screens */
+.story-text {
+  max-width: 42em;
+  margin: 0 auto;
+}
+
+#lost-hour h2 {
+  font-size: 2em;
+  text-align: center;
+}
+
+.story-question {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 1.15em;
+  text-align: center;
+}
+
+/* The closing line: gold, larger, with a thin gold rule above it */
+.story-ending {
+  margin-top: 1.5em;
+  padding-top: 1em;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4em;
+  letter-spacing: 0.08em;
+  color: #C9AE63;
+  text-align: center;
+  border-top: 1px solid rgba(201, 174, 99, 0.4);
+}
+
 /* ===== CONTENT CARDS (Explore the World and Learn the Game) ===== */
 .card {
   display: flex;
