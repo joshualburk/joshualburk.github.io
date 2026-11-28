@@ -57,31 +57,15 @@
         <h2>Help Shape Essetara</h2>
         <p>Essetara: Manifest is currently in alpha development. Your feedback will help identify unclear rules, improve gameplay mechanics, and guide future changes. After trying the game, please complete the feedback form and share your experience.</p>
 
-        <!-- ----- How to send feedback: download, complete, email ----- -->
-        <div class="feedback-box">
-          <h3>Download the Feedback Form</h3>
-
-          <!-- PDF: save the form as downloads/essetara-feedback-form.pdf -->
-          <a href="downloads/essetara-feedback-form.pdf" class="button" download>Download Feedback Form (PDF)</a>
-
-          <ol class="feedback-steps">
-            <li>Download the feedback form.</li>
-            <li>Complete the form.</li>
-            <li>Email the completed form to the developer.</li>
-          </ol>
-
-          <!-- Replace YOUR-EMAIL@example.com with your real email address -->
-          <a href="mailto:YOUR-EMAIL@example.com" class="button button-outline">Email Completed Feedback</a>
-        </div>
-
-        <!-- ----- On-page preview of the form's questions.
-             There is no Submit button: this website does not send or
-             store answers. Testers use the downloadable PDF instead. ----- -->
+        <!-- ----- Feedback form (same setup as the class reservations form).
+             NOTE: the action sends answers to the textbook's practice script,
+             which only displays them on a confirmation page. They are not
+             emailed or saved anywhere. Replace the action later with a real
+             form service if you want to receive feedback. ----- -->
         <article class="feedback-box">
           <h3>Essetara: Manifest &ndash; Alpha Playtest Feedback</h3>
-          <p class="preview-note">Form preview: these are the questions in the downloadable form. Anything typed here is not sent or saved, so please use the PDF above.</p>
 
-          <form>
+          <form method="post" action="https://webdevbasics.net/scripts/pacific.php">
             <label for="tester-name">1. Name or Username (Optional)</label>
             <input type="text" id="tester-name" name="tester-name">
 
@@ -109,6 +93,8 @@
 
             <label for="suggestions">5. What suggestions do you have for improving gameplay?</label>
             <textarea id="suggestions" name="suggestions" rows="4" cols="40"></textarea>
+
+            <input type="submit" value="Submit Feedback" class="button">
           </form>
         </article>
       </section>

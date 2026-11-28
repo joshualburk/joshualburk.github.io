@@ -499,7 +499,7 @@ main {
   text-align: center;
 }
 
-/* Inner boxes: the download steps and the form preview */
+/* Inner box around the feedback form */
 .feedback-box {
   margin-top: 1.5em;
   padding: 1.5em;
@@ -511,15 +511,6 @@ main {
 .feedback-box h3 {
   margin-top: 0;
   color: #C9AE63;
-}
-
-.feedback-steps li {
-  margin-bottom: 0.4em;
-}
-
-.preview-note {
-  font-style: italic;
-  font-size: 0.9em;
 }
 
 /* The form stacks each label above its field */
@@ -566,6 +557,15 @@ main {
 
 .contact-email label {
   display: block;
+}
+
+/* Submit button: uses the .button look, sized to its text
+   instead of stretching across the form */
+#feedback input[type="submit"] {
+  align-self: flex-start;
+  margin: 1.5em 0 0 0;
+  font-size: 1em;
+  cursor: pointer;
 }
 
 /* ===== FOOTER ===== */
