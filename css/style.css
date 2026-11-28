@@ -681,6 +681,387 @@ main {
   cursor: pointer;
 }
 
+/* =========================================================
+   RULES PAGE (rules.html)
+   Phone/tablet: search and a collapsible chapter menu sit above
+   the rulebook. Desktop (1024px+): the menu becomes a sticky
+   left column (see the desktop media query at the end).
+   ========================================================= */
+
+/* ----- Page header (no artwork: a gradient only) ----- */
+#rules-banner {
+  background-image: linear-gradient(135deg, #2A2550, #11151A 50%, #2E3558);
+}
+
+#rules-banner p {
+  max-width: 48em;
+  margin: 0 auto 0.75em auto;
+}
+
+.rules-subtitle {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 1.1em;
+  color: #C9AE63;
+}
+
+/* ----- Left column: search and chapter menu ----- */
+.rules-sidebar {
+  margin-bottom: 1.5em;
+  padding: 1em;
+  background-color: #1B2030;
+  border: 1px solid #4E5A8A;
+  border-radius: 6px;
+}
+
+.rules-search label {
+  display: block;
+  margin-bottom: 0.3em;
+  color: #C9AE63;
+  font-size: 0.9em;
+  letter-spacing: 0.05em;
+}
+
+#rules-search {
+  width: 100%;
+  padding: 0.6em;
+  background-color: #11151A;
+  color: #E7E9E6;
+  font-size: 1em;
+  border: 1px solid #625A9B;
+  border-radius: 4px;
+}
+
+.search-status {
+  margin: 0.5em 0 0 0;
+  font-size: 0.85em;
+}
+
+.search-status:empty {
+  display: none;
+}
+
+.search-results {
+  list-style-type: none;
+  margin: 0.5em 0 0 0;
+  padding-left: 0;
+}
+
+.search-results a {
+  display: block;
+  padding: 0.5em 0.6em;
+  color: #E7E9E6;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+}
+
+.search-results a:hover,
+.search-results a:focus {
+  background-color: rgba(98, 90, 155, 0.35);
+  border-left-color: #C9AE63;
+}
+
+.search-results strong {
+  display: block;
+  color: #C9AE63;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: normal;
+}
+
+.search-results .snippet {
+  font-size: 0.85em;
+}
+
+/* Highlighted search words */
+.search-results mark {
+  background-color: #C9AE63;
+  color: #11151A;
+}
+
+/* Phone/tablet button that opens and closes the chapter menu.
+   The arrow changes direction, so the state is not shown by color alone. */
+.rules-nav-toggle {
+  display: block;
+  width: 100%;
+  margin-top: 1em;
+  padding: 0.7em 1em;
+  background-color: #625A9B;
+  color: #FFFFFF;
+  font-size: 1em;
+  text-align: left;
+  border: 1px solid #C9AE63;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.rules-nav-toggle::after {
+  content: "\25BE";   /* down arrow */
+  float: right;
+}
+
+.rules-nav-toggle[aria-expanded="true"]::after {
+  content: "\25B4";   /* up arrow */
+}
+
+/* While searching, the script hides the menu with the hidden attribute.
+   !important lets that win over the display rules below. */
+.rules-sidebar [hidden] {
+  display: none !important;
+}
+
+/* Menu is closed on phones/tablets until the toggle opens it */
+.rules-nav {
+  display: none;
+  margin-top: 0.75em;
+}
+
+.rules-sidebar.nav-open .rules-nav {
+  display: block;
+}
+
+.toc,
+.toc-sub {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.toc-row {
+  display: flex;
+}
+
+.toc-link {
+  flex: 1;
+  display: block;
+  padding: 0.45em 0.6em;
+  color: #E7E9E6;
+  font-size: 0.95em;
+  line-height: 1.35;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+}
+
+.toc-link:hover {
+  color: #C9AE63;
+  background-color: rgba(98, 90, 155, 0.25);
+}
+
+.toc-sub .toc-link {
+  padding-left: 1.5em;
+  font-size: 0.88em;
+}
+
+/* Expand/collapse button beside each chapter: arrow points right when
+   closed, down when open */
+.toc-toggle {
+  flex: 0 0 2.2em;
+  background-color: transparent;
+  color: #C9AE63;
+  font-size: 0.9em;
+  border: 0;
+  cursor: pointer;
+}
+
+.toc-toggle::before {
+  content: "\25B8";   /* right arrow */
+}
+
+.toc-toggle[aria-expanded="true"]::before {
+  content: "\25BE";   /* down arrow */
+}
+
+/* The section currently on screen: violet background, gold bar, bold */
+.toc-link.active {
+  background-color: rgba(98, 90, 155, 0.5);
+  color: #FFFFFF;
+  font-weight: bold;
+  border-left-color: #C9AE63;
+}
+
+/* The chapter that contains the section on screen */
+.toc-link.active-chapter {
+  color: #C9AE63;
+  border-left-color: #625A9B;
+}
+
+/* ----- Right column: the rulebook ----- */
+.rulebook {
+  padding: 1.5em 1.25em;
+  background-color: #1B2030;
+  border: 1px solid #4E5A8A;
+  border-radius: 6px;
+}
+
+/* Comfortable line length for reading */
+.rulebook p,
+.rulebook li,
+.rulebook dd {
+  max-width: 46em;
+}
+
+/* Leaves breathing room above a heading when a link jumps to it */
+.chapter,
+.rule {
+  scroll-margin-top: 1em;
+}
+
+.rule {
+  margin-bottom: 1.75em;
+}
+
+/* Subtle gold divider between chapters */
+.chapter + .chapter {
+  margin-top: 2.5em;
+  padding-top: 2em;
+  border-top: 1px solid rgba(201, 174, 99, 0.35);
+}
+
+.chapter h3 {
+  margin: 0 0 1em 0;
+  color: #C9AE63;
+  font-size: 1.5em;
+}
+
+.rule h4 {
+  margin: 0 0 0.5em 0;
+  padding-bottom: 0.3em;
+  font-size: 1.15em;
+  border-bottom: 1px solid #4E5A8A;
+}
+
+.rulebook a:link,
+.rulebook a:visited {
+  color: #C9AE63;
+}
+
+.rulebook a:hover {
+  color: #E7E9E6;
+}
+
+.rulebook ul,
+.rulebook ol {
+  padding-left: 1.5em;
+}
+
+.rulebook li {
+  margin-bottom: 0.3em;
+}
+
+/* Practical example boxes */
+.rule-example {
+  margin: 1em 0;
+  padding: 1em 1.25em;
+  background-color: #232A44;
+  border: 1px solid #625A9B;
+  border-left: 4px solid #625A9B;
+  border-radius: 4px;
+}
+
+.example-label {
+  margin-top: 0;
+  color: #C9AE63;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.05em;
+}
+
+.rule-example p:last-child {
+  margin-bottom: 0;
+}
+
+/* Quiet "In development" notes */
+.dev-notice {
+  padding-left: 0.75em;
+  font-size: 0.9em;
+  font-style: italic;
+  color: #C5C9D0;
+  border-left: 2px solid #C9AE63;
+}
+
+.dev-notice strong {
+  color: #C9AE63;
+}
+
+/* Reference tables */
+.rules-table {
+  width: 100%;
+  max-width: 46em;
+  margin: 1em 0;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+
+.rules-table caption {
+  padding-bottom: 0.4em;
+  color: #C9AE63;
+  font-family: Georgia, "Times New Roman", serif;
+  text-align: left;
+}
+
+.rules-table th,
+.rules-table td {
+  padding: 0.5em 0.75em;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #4E5A8A;
+}
+
+.rules-table thead th {
+  background-color: #2A3150;
+  color: #C9AE63;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: normal;
+}
+
+.rules-table tbody tr:nth-child(even) {
+  background-color: rgba(78, 90, 138, 0.15);
+}
+
+/* Glossary */
+.glossary dt {
+  font-weight: bold;
+  color: #C9AE63;
+}
+
+.glossary dd {
+  margin: 0 0 0.6em 1.25em;
+}
+
+/* Back to Top control (shown after scrolling down) */
+.back-to-top {
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+  z-index: 10;
+  padding: 0.5em 0.9em;
+  background-color: #625A9B;
+  color: #FFFFFF;
+  font-size: 0.9em;
+  text-decoration: none;
+  border: 1px solid #C9AE63;
+  border-radius: 4px;
+}
+
+.back-to-top:hover {
+  background-color: #4E5A8A;
+}
+
+/* Clear gold outline for keyboard users */
+.rules-sidebar a:focus-visible,
+.rules-sidebar button:focus-visible,
+#rules-search:focus-visible,
+.rulebook a:focus-visible,
+.back-to-top:focus-visible {
+  outline: 3px solid #C9AE63;
+  outline-offset: 2px;
+}
+
+/* Visitors who ask their device for less motion get instant jumps */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* ===== FOOTER ===== */
 footer {
   padding: 2em 1em;
@@ -856,5 +1237,36 @@ footer a:focus {
   .portrait {
     width: 95px;
     height: 130px;
+  }
+
+  /* Rules page: two columns, with the menu sticking beside the rulebook */
+  .rules-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 2em;
+  }
+
+  .rules-sidebar {
+    position: sticky;
+    top: 1em;
+    flex: 0 0 17.5em;
+    max-height: calc(100vh - 2em);
+    overflow-y: auto;
+    margin-bottom: 0;
+  }
+
+  .rules-nav-toggle {
+    display: none;
+  }
+
+  .rules-nav,
+  .rules-sidebar.nav-open .rules-nav {
+    display: block;
+  }
+
+  .rulebook {
+    flex: 1;
+    min-width: 0;
+    padding: 2em;
   }
 }

@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Rules of Manifestation – Essetara: Manifest</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Essetara: Manifest rulebook: Domains, Essence, Catalyst Cards, Tempo, combat, and more.">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Builds the chapter menu, search, and Back to Top control -->
+  <script src="js/rules.js" defer></script>
+</head>
+<body>
+  <div id="wrapper">
+
+    <!-- ===== HEADER: game title and navigation ===== -->
+    <header>
+      <h1><a href="index.html">Essetara: Manifest</a></h1>
+      <p class="tagline">Official Game Website</p>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="world.html">World of Essetara</a></li>
+          <li><a href="factions.html">Factions &amp; Characters</a></li>
+          <li><a href="rules.html" class="current">Rules</a></li>
+          <li><a href="game.html">Game</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- ===== PAGE HEADER ===== -->
+      <section id="rules-banner" class="page-banner">
+        <h2>Rules of Manifestation</h2>
+        <p class="rules-subtitle">Learn the mechanics, master the battlefield, and discover how to harness the power of Essence.</p>
+        <p>Essetara: Manifest is currently in development. These rules describe the current prototype and may change as the game undergoes testing and refinement. Rules still being developed are marked <strong>In development</strong>.</p>
+      </section>
+
+      <div class="rules-layout">
+
+        <!-- ===== LEFT COLUMN: search and chapter menu.
+             The chapter list is built automatically by js/rules.js from the
+             headings in the rulebook below, so it never needs editing by hand. ===== -->
+        <aside class="rules-sidebar">
+          <div class="rules-search">
+            <label for="rules-search">Search the rulebook</label>
+            <input type="search" id="rules-search" placeholder="Search the rules..." autocomplete="off">
+            <p id="search-status" class="search-status" aria-live="polite"></p>
+            <ol id="search-results" class="search-results" hidden></ol>
+          </div>
+
+          <!-- Phone and tablet only: opens and closes the chapter menu -->
+          <button type="button" class="rules-nav-toggle" aria-expanded="false" aria-controls="rules-nav">Rules Navigation</button>
+
+          <nav id="rules-nav" class="rules-nav" aria-label="Rulebook chapters">
+            <ol class="toc"></ol>
+          </nav>
+        </aside>
+
+        <!-- ===== RIGHT COLUMN: the rulebook.
+             Each chapter is a <section class="chapter" id="ch-#">.
+             Each numbered rule is a <section class="rule" id="s#-#">.
+             To update a rule, edit the text inside its section.
+             Cross-references link to these ids, e.g. href="#s8-5". ===== -->
+        <article class="rulebook">
+
+          <!-- ===== HOW TO USE THIS GUIDE ===== -->
+          <section class="chapter" id="how-to-use">
+            <h3>How to Use This Guide</h3>
+            <div class="rule">
+              <p>Start with the overview, components, Domains, battlefield and Essence. Follow the Action/Reaction timing sequence in <a href="#ch-7">Chapters 7</a> and <a href="#ch-9">9</a>. A specific ability can override a general rule when it explicitly says so.</p>
+            </div>
+          </section>
+
+          <!-- ===== CHAPTER 1 ===== -->
+          <section class="chapter" id="ch-1">
+            <h3>1. Introduction and Game Overview</h3>
+
+            <section class="rule" id="s1-1">
+              <h4>1.1 The World of Essetara</h4>
+              <p>Essetara is a dark-fantasy world of contested sites and supernatural <strong>Essence</strong>. Rival characters draw on reality’s underlying Essences to manifest abilities and pursue objectives.</p>
+            </section>
+
+            <section class="rule" id="s1-2">
+              <h4>1.2 Objective of the Game</h4>
+              <p>Essetara: Manifest is an objective-driven tactical skirmish game played on a hex grid. Defeating opponents may help, but <strong>mission objectives determine victory</strong>.</p>
+              <p class="dev-notice"><strong>In development:</strong> Scenario-specific scoring, public objectives, possible hidden agendas and tie resolution are not yet fixed.</p>
+            </section>
+
+            <section class="rule" id="s1-3">
+              <h4>1.3 Players and Characters</h4>
+              <p>The standard prototype pits two players against each other; each controls <strong>three characters</strong>. Characters have independent Domain values and markers on their owner’s Tempo track.</p>
+            </section>
+
+            <section class="rule" id="s1-4">
+              <h4>1.4 Core Gameplay Concepts</h4>
+              <p>Players alternate activations, choosing any of their own non-Exhausted characters. Abilities may require current Domain thresholds and pay Essence and Catalyst costs. Terrain, the shared Environment, timing interrupts and individual Tempo tracks shape tactical choices.</p>
+            </section>
+
+            <section class="rule" id="s1-5">
+              <h4>1.5 How to Use This Rulebook</h4>
+              <p>This guide describes the current rules. Content still in development is listed in <a href="#appendix-b">Appendix B</a>.</p>
+            </section>
+          </section>
+
+          <!-- ===== CHAPTER 2 ===== -->
+          <section class="chapter" id="ch-2">
+            <h3>2. Game Components and Board Layout</h3>
+
+            <section class="rule" id="s2-1">
+              <h4>2.1 Component Inventory</h4>
+              <p>Prototype components include:</p>
+              <ul>
+                <li>a hex Battlefield</li>
+                <li>terrain features</li>
+                <li>three characters per player</li>
+                <li>character/ability cards</li>
+                <li>player decks</li>
+                <li>a shared Essence environment</li>
+                <li>character reserves</li>
+                <li>Tempo tracks</li>
+                <li>markers for Domains and conditions</li>
+              </ul>
+              <p>The shared <strong>Environment</strong> consists of 15 paired, double-sided Essence cards, all present throughout play. Each player has a 36-card <strong>Catalyst Deck</strong>. There is no separate Energy Deck.</p>
+            </section>
+
+            <section class="rule" id="s2-2">
+              <h4>2.2 Battlefield and Terrain</h4>
+              <p>The <strong>Battlefield</strong> is divided into hexes. A map represents a specific location, such as a Forest Clearing, containing themed terrain features.</p>
+            </section>
+
+            <section class="rule" id="s2-3">
+              <h4>2.3 Environment and Essence Cards</h4>
+              <p>The shared Environment contains 15 double-sided Essence cards, one for each unique pair of the six Essence types. All 15 are present and available subject to their current face and card-specific restrictions.</p>
+              <p>When a face-up Environment Essence is used to pay an ability cost, <strong>flip that card after payment</strong>. The reverse face becomes the available Essence. There is no separate Energy Deck or replacement queue.</p>
+            </section>
+
+            <section class="rule" id="s2-4">
+              <h4>2.4 Character and Ability Cards</h4>
+              <p>Character cards identify a character and track current and maximum Mind, Body and Spirit. Ability records include name, classification, timing, target, range, requirements, cost and effects.</p>
+            </section>
+
+            <section class="rule" id="s2-5">
+              <h4>2.5 Catalyst Deck and Catalyst Cards</h4>
+              <p>Each player has a common 36-card Catalyst Deck, with six cards of each of the six Catalyst types and three copies of each of 12 Item/Tactical effects. There are no character-specific cards. Each card is used for its Catalyst contribution <strong>or</strong> its Item/Tactical effect, not both.</p>
+            </section>
+
+            <section class="rule" id="s2-6">
+              <h4>2.6 Player Hand, Play Area, and Discard Pile</h4>
+              <p>Each player draws <strong>seven cards</strong> at game start. Subsequent draws occur individually only when an ability or effect instructs a draw. The Play Area displays committed cards and markers. Used cards are discarded after the Action or Reaction resolves.</p>
+              <p>When the deck is empty and a card must be drawn, shuffle the discard pile to form the new deck. If both deck and discard pile are empty, skip the draw.</p>
+            </section>
+
+            <section class="rule" id="s2-7">
+              <h4>2.7 Tempo Tracks and Markers</h4>
+              <p>Each player maintains a separate <strong>Tempo track</strong> with one marker per character.</p>
+            </section>
+
+            <section class="rule" id="s2-8">
+              <h4>2.8 Character Reserves and Status Markers</h4>
+              <p>Each character has a hidden personal <strong>Reserve</strong> with two spaces for Essence drawn from terrain. Status markers track effects and Domain changes.</p>
+              <p>Reserve is filled by abilities, passives or Item/Tactical effects. Up to both stored Essences may be spent on an ability in place of drawing matching Essence (see <a href="#s5-7">5.7</a>).</p>
+            </section>
+          </section>
+
+          <!-- ===== CHAPTER 3 ===== -->
+          <section class="chapter" id="ch-3">
+            <h3>3. Characters and Domains</h3>
+
+            <section class="rule" id="s3-1">
+              <h4>3.1 Character Cards</h4>
+              <p>A character’s card records identity, faction or affiliation, abilities and its three Domain pools. Life is not a separate health statistic.</p>
+            </section>
+
+            <section class="rule" id="s3-2">
+              <h4>3.2 Mind, Body, and Spirit</h4>
+              <p><strong>Mind</strong>, <strong>Body</strong> and <strong>Spirit</strong> are the three <strong>Domains</strong>. They represent distinct forms of resilience and serve as eligibility gates for abilities.</p>
+            </section>
+
+            <section class="rule" id="s3-3">
+              <h4>3.3 Current and Maximum Domain Values</h4>
+              <p>Each Domain has a current value and maximum. Damage decreases the relevant current Domain; recovery restores it without exceeding the maximum.</p>
+            </section>
+
+            <section class="rule" id="s3-4">
+              <h4>3.4 Domain Requirements</h4>
+              <p>Domain values are <strong>not spent</strong> as an ability cost. An ability may require Body ≥10, Body ≤3, or multiple thresholds such as Mind ≥8 AND Spirit ≥6. Eligibility is checked against current values.</p>
+              <p>Check Domain Requirements <strong>when the ability is declared</strong>. A subsequent change in Domain values does not invalidate the ability on the basis of its Domain Requirements.</p>
+              <div class="rule-example" role="note">
+                <p class="example-label">Example: Domain Requirement</p>
+                <p>A character with current Body 9 cannot use a Body ≥10 ability. Taking Body damage can enable an ability requiring Body ≤3; neither threshold spends Body points.</p>
+              </div>
+            </section>
+
+            <section class="rule" id="s3-5">
+              <h4>3.5 Domain Damage and Recovery</h4>
+              <p>Damage and recovery are applied to the named Domain separately. A hit can deal, for example, 3 Body and 1 Spirit damage.</p>
+              <p>Damage reduction specifies the Domains it can affect. If more than one Domain is eligible, the defender chooses one; reduction cannot be split unless explicitly permitted. Apply reduction before reducing the Domain value. Domain values cannot fall below zero and <strong>excess damage does not spill over</strong>. Check zero-Domain thresholds after the entire ability resolves (see <a href="#s9-7">9.7</a>).</p>
+            </section>
+
+            <section class="rule" id="s3-6">
+              <h4>3.6 Passive Abilities</h4>
+              <p>Character-specific passive abilities may modify targeting, Domain thresholds, terrain interaction or timing, as described on the card.</p>
+              <p>Triggered passives resolve at their printed timing. At the same timing, the Active player resolves first; each player chooses the order of their own simultaneous effects. Newly triggered interrupts resolve at their specified timing before the interrupted sequence continues.</p>
+            </section>
+
+            <section class="rule" id="s3-7">
+              <h4>3.7 Incapacitation</h4>
+              <p>A character is <strong>Incapacitated</strong> when two of its three Domains reach 0. Its marker remains on its current Battlefield hex. It does not block Line of Sight, and other characters may move through or occupy that hex. A single Domain at 0 instead places the character in an <strong>Exhausted</strong> state on the Tempo track.</p>
+              <p>Normal recovery ends Incapacitation when at least two Domains are above zero and no other character occupies its hex. Domain values may recover while the hex is occupied, but Incapacitation persists until the other character leaves. Three Domains at zero have no additional Incapacitation effect.</p>
+              <p>An Incapacitated character cannot react. Once recovered, normal Exhaustion rules apply.</p>
+            </section>
+          </section>
+
+          <!-- ===== CHAPTER 4 ===== -->
+          <section class="chapter" id="ch-4">
+            <h3>4. Battlefield, Movement, and Line of Sight</h3>
+
+            <section class="rule" id="s4-1">
+              <h4>4.1 Hex Grid and Positioning</h4>
+              <p>Each character occupies one hex. Hexes are adjacent only when they share an edge. <strong>Hex distance</strong> counts the shortest number of adjacent-hex steps, excluding the origin.</p>
+              <p>Allied characters may move through hexes occupied by allies but cannot end their movement in another active character’s hex. Characters may not move through hexes occupied by hostile characters. Incapacitated characters are an exception: their hex may be crossed and occupied.</p>
+            </section>
+
+            <section class="rule" id="s4-2">
+              <h4>4.2 Movement and Movement Effects</h4>
+              <p>Movement proceeds one adjacent hex at a time, spending the entry cost of each hex. <strong>Forced movement</strong> uses the same rules as voluntary movement; only control of the path differs.</p>
+              <p>Forced movement does not bypass hostile occupied hexes or impassable terrain unless a specific ability explicitly overrides those restrictions. Allied occupied hexes can be crossed under the normal occupancy rule.</p>
+              <p>Forced movement triggers the same terrain, passive and movement effects as voluntary movement. An effect that ignores terrain ignores all terrain traits, including Severe entry costs, impassability and terrain triggers.</p>
+            </section>
+
+            <section class="rule" id="s4-3">
+              <h4>4.3 Terrain Occupancy and Restrictions</h4>
+              <p>Terrain can be traversable, impassable or blocking; a terrain feature blocking Line of Sight does not automatically prevent occupation.</p>
+              <p>Entering a normal hex costs <strong>one movement point</strong>; entering <strong>Severe Terrain</strong> costs <strong>two</strong>. A character must have sufficient movement remaining to enter the hex. These costs apply equally to forced and voluntary movement.</p>
+              <p>If movement is interrupted in a hex occupied by an ally and cannot continue, the player controlling the movement chooses an adjacent legal hex in which to place the moving character. Movement cannot voluntarily end in an allied occupied hex.</p>
+              <p class="dev-notice"><strong>In development:</strong> Placement if no adjacent legal hex exists after interrupted movement.</p>
+            </section>
+
+            <section class="rule" id="s4-4">
+              <h4>4.4 Line of Sight</h4>
+              <p>Draw a straight line from the center of the acting character’s hex to the center of the target hex. <strong>Line of Sight (LoS)</strong> is blocked if the line crosses the interior of a blocking terrain hex. Touching only a blocking hex edge or corner does not block LoS. A line following the shared edge of two adjacent blocking hexes is blocked.</p>
+              <p>Characters do not ordinarily block Line of Sight. An Incapacitated character expressly does not block Line of Sight. For Area Effects, Line of Sight is checked to the chosen central hex, not to every affected hex.</p>
+              <div class="rule-example" role="note">
+                <p class="example-label">Example: Line of Sight</p>
+                <p>If the center-to-center line touches only the corner of a blocking hex, LoS is clear. If it follows the shared edge of two blocking hexes, LoS is blocked.</p>
+              </div>
+            </section>
+
+            <section class="rule" id="s4-5">
+              <h4>4.5 Range and Targeting</h4>
+              <p><strong>Range</strong> is the shortest hex distance between source and target; the source hex is Range 0. An ability may target Self, Ally, Enemy, Character, Hex, Terrain or Area, subject to its printed restrictions.</p>
+              <p>If a Reaction or interrupt invalidates a target, a legal replacement target may be selected. If no replacement is selected, target-dependent effects fail and independent effects continue. Paid costs are not refunded (see <a href="#s7-9">7.9</a>).</p>
+            </section>
+
+            <section class="rule" id="s4-6">
+              <h4>4.6 Area Effects</h4>
+              <p>An <strong>Area Effect</strong> has a designated central hex and a specified shape. The player may rotate that shape around its central hex as allowed by the ability. Only the central hex requires Line of Sight; the other affected hexes do not need individual Line of Sight checks.</p>
+              <p>The Area Effect template is printed on the ability. Most Area Effects target a hex rather than a character. A template may be rotated so that part extends beyond the Battlefield; only hexes on the Battlefield are affected.</p>
+              <p>Rotation is limited to the six hex orientations. An Area Effect centered on a character remains at its original location if that character moves.</p>
+            </section>
+
+            <section class="rule" id="s4-7">
+              <h4>4.7 Movement Interrupts</h4>
+              <p>Resolve movement one hex at a time.</p>
+              <ul>
+                <li><strong>Before</strong> effects resolve before the named event.</li>
+                <li><strong>When</strong> effects interrupt at their trigger.</li>
+                <li><strong>After</strong> effects follow completion of the named event.</li>
+              </ul>
+              <p>Movement is complete when no movement remains, the character cannot move farther, or the controlling player voluntarily stops in a legal hex. If interrupted in an allied occupied hex, apply the placement rule in <a href="#s4-3">4.3</a>. Completion effects then resolve according to their wording.</p>
+              <p>Interrupts resolve at their specified timing. At the same timing, the Active player goes first; each player chooses the order of their own simultaneous interrupts. A newly triggered interrupt resolves before the interrupted sequence resumes (see <a href="#s7-9">7.9</a>).</p>
+              <div class="rule-example" role="note">
+                <p class="example-label">Example: Movement</p>
+                <p>A five-point move is interrupted after two normal hexes by a When effect changing who controls movement. The remaining three points follow normal terrain and occupancy rules. Movement completes when no points remain, no further movement is possible, or the controller stops in a legal hex.</p>
+              </div>
+            </section>
+          </section>
+
+          <!-- ===== CHAPTER 5 ===== -->
+          <section class="chapter" id="ch-5">
+            <h3>5. Essence and Terrain</h3>
+
+            <section class="rule" id="s5-1">
+              <h4>5.1 Six Essence Types</h4>
+              <table class="rules-table">
+                <caption>The six Essence types</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Essence</th>
+                    <th scope="col">Represents</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Elemental</th><td>Natural elements and physical forces</td></tr>
+                  <tr><th scope="row">Cyclical</th><td>Life, death, growth and decay</td></tr>
+                  <tr><th scope="row">Celestial</th><td>Time, space, gravity and cosmic phenomena</td></tr>
+                  <tr><th scope="row">Equilibrium</th><td>Balance, order, chaos and instability</td></tr>
+                  <tr><th scope="row">Psychic</th><td>Thought, emotion, memory and perception</td></tr>
+                  <tr><th scope="row">Aetheric</th><td>Spirits, souls, bonds and supernatural planes</td></tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section class="rule" id="s5-2">
+              <h4>5.2 Essence Sources</h4>
+              <p>Essence may be drawn from a shared <strong>Environment</strong>, eligible nearby <strong>terrain</strong> and a character’s private <strong>Reserve</strong>.</p>
+            </section>
+
+            <section class="rule" id="s5-3">
+              <h4>5.3 Environment and Double-Sided Essence Cards</h4>
+              <p>The shared Environment always displays all 15 unique paired Essence cards. One face is available on each card. After a player uses that Essence to pay a cost, that card flips to its other Essence face.</p>
+              <p>All 15 cards remain in the Environment; there is no separate Energy Deck, Environment capacity beyond 15, FIFO replacement or routine refill.</p>
+            </section>
+
+            <section class="rule" id="s5-4">
+              <h4>5.4 Flipping and Altering Essence Cards</h4>
+              <p>Using an Environment card to pay a cost flips it after payment. An ability may alter, lock or otherwise interact with an Environment card only if its text explicitly permits that effect.</p>
+              <p>The locking ability specifies lock duration. A locked card can be flipped by another effect only if that effect explicitly permits flipping locked cards. An ability requiring Essence that cannot be supplied cannot be performed.</p>
+            </section>
+
+            <section class="rule" id="s5-5">
+              <h4>5.5 Terrain Essence and Map-Specific Terrain</h4>
+              <p>Each map represents one distinctive location. Map terrain features, such as a Forest Clearing’s Flower Patch, Fungal Colony, Hollow Tree and Vine Cluster, each provide access to <strong>three</strong> assigned Essence types. Map terrain has a shared depletion allowance of <strong>10 total Essence draws</strong>, regardless of which of its three types is drawn.</p>
+              <p>A character may draw one Essence from each eligible terrain feature per Action or Reaction. To qualify, the character must be within one hex of the terrain. Each draw consumes one of that feature’s remaining uses; the feature depletes after its tenth draw.</p>
+              <p class="dev-notice"><strong>In development:</strong> Map-specific terrain properties.</p>
+            </section>
+
+            <section class="rule" id="s5-6">
+              <h4>5.6 Created Terrain</h4>
+              <p>Created terrain provides access to exactly <strong>two</strong> Essence types and has <strong>five total draws</strong> shared across those types. Each eligible character may draw one Essence from each eligible created terrain feature per Action or Reaction while within one hex.</p>
+              <p>Created terrain cannot be placed on existing terrain. It cannot be placed beneath a character unless the creating ability specifically targets a character.</p>
+              <p>Created terrain depletes after five total Essence draws; map terrain after ten. Depleted terrain remains physical terrain and retains its applicable terrain properties.</p>
+              <p>Players may track remaining draws using counters, dice or written records. Removed terrain supplies no Essence. Replacement terrain begins with its full draw allowance.</p>
+              <p class="dev-notice"><strong>In development:</strong> Created-terrain duration.</p>
+            </section>
+
+            <section class="rule" id="s5-7">
+              <h4>5.7 Character Reserves</h4>
+              <p>Each character has a private Reserve with two spaces for storing Essence drawn from terrain.</p>
+              <p>Abilities, passives and Item/Tactical effects fill the Reserve. Either or both stored Essences may be spent on an ability in place of drawing Essence of the same type.</p>
+              <p>Filling a Reserve consumes terrain draws and follows normal range and per-feature limits unless explicitly overridden. Stored Essence cannot be swapped or replaced until used. Effects and abilities may reveal stored Essence.</p>
+            </section>
+
+            <section class="rule" id="s5-8">
+              <h4>5.8 Drawing and Using Essence</h4>
+              <p>An Action or Reaction may draw one Essence from each eligible terrain feature within one hex of its character.</p>
+              <ul>
+                <li><strong>Map terrain</strong> provides one of three Essence types per draw (10 total draws per feature).</li>
+                <li><strong>Created terrain</strong> provides one of two (5 total draws per feature).</li>
+                <li><strong>Environment</strong> Essence is taken from the face-up side of one of 15 cards and flipped after it pays a cost.</li>
+                <li><strong>Reserve:</strong> up to two matching stored Essences may supplement the cost from the character’s Reserve.</li>
+              </ul>
+              <p>Environment use is optional and has no numerical draw limit; all, some or none of the required Essence may come from the Environment. <strong>Do not draw Essence that will not be used.</strong></p>
+              <p>An ability cannot be performed if its required Essence cannot be supplied from legal sources.</p>
+            </section>
+
+            <section class="rule" id="s5-9">
+              <h4>5.9 Essence Substitution</h4>
+              <p>Effects, Passive Abilities and Item/Tactical effects may explicitly permit substitution of one Essence type for another. Catalyst symbols are separate from Essence.</p>
+            </section>
+          </section>
+
+          <!-- ===== CHAPTER 6 ===== -->
+          <section class="chapter" id="ch-6">
+            <h3>6. Catalyst Cards</h3>
+
+            <section class="rule" id="s6-1">
+              <h4>6.1 Catalyst Card Overview</h4>
+              <p>Catalyst Cards belong to each player’s Catalyst Deck. Each card may be used either for its Catalyst contribution or for its printed Item/Tactical option, never both in the same use.</p>
+              <p>A <strong>Manifestation</strong> is an ability whose costs have been paid; Manifest and Manifestation do not name a card or deck.</p>
+            </section>
+
+            <section class="rule" id="s6-2">
+              <h4>6.2 Six Catalysts</h4>
+              <table class="rules-table">
+                <caption>The six Catalysts</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Catalyst</th>
+                    <th scope="col">Represents</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Force</th><td>Power or impact</td></tr>
+                  <tr><th scope="row">Motion</th><td>Position or movement</td></tr>
+                  <tr><th scope="row">Time</th><td>Duration or temporal change</td></tr>
+                  <tr><th scope="row">Magnitude</th><td>Intensity</td></tr>
+                  <tr><th scope="row">Shape</th><td>Form or area</td></tr>
+                  <tr><th scope="row">Flex</th><td>Alteration or adaptation</td></tr>
+                </tbody>
+              </table>
+              <p class="dev-notice"><strong>In development:</strong> Catalyst mechanical definitions and icons (see <a href="#s12-2">12.2</a>).</p>
+            </section>
+
+            <section class="rule" id="s6-3">
+              <h4>6.3 Using Cards for Catalysts</h4>
+              <p>Abilities pay their listed Catalyst requirements using eligible Catalyst Cards. The Catalyst symbols and Essence draws are distinct resources. A card used for its Catalyst cannot also activate its Item/Tactical effect.</p>
+              <p>A Passive Ability, effect or Item/Tactical effect may explicitly allow a Catalyst Card to supply multiple symbols or be allocated across manifestations.</p>
+            </section>
+
+            <section class="rule" id="s6-4">
+              <h4>6.4 Item and Tactical Effects</h4>
+              <p><strong>Item/Tactical effects</strong> are printed on Catalyst Cards and have their own costs. The initial deck contains 12 distinct Item/Tactical effects, with three copies of each.</p>
+              <p class="dev-notice"><strong>In development:</strong> The 12 Item/Tactical effects and their distribution.</p>
+            </section>
+
+            <section class="rule" id="s6-5">
+              <h4>6.5 Dual-Use Restriction</h4>
+              <p>A Catalyst Card may be used for its Catalyst contribution or its printed Item/Tactical effect, <strong>never both</strong> for the same use.</p>
+            </section>
+
+            <section class="rule" id="s6-6">
+              <h4>6.6 Hand and Discard Procedures</h4>
+              <p>At game start each player draws seven cards. Subsequent draws occur individually as specified by an effect. Used cards are discarded after the Action or Reaction resolves.</p>
+              <p>When the deck is empty and a card must be drawn, shuffle the discard pile to form the new deck.</p>
+              <p>If both the deck and discard pile are empty, skip the draw.</p>
+            </section>
+          </section>
+
+          <!-- ===== CHAPTER 7 ===== -->
+          <section class="chapter" id="ch-7">
+            <h3>7. Abilities and Manifestation</h3>
+
+            <section class="rule" id="s7-1">
+              <h4>7.1 Ability Card Anatomy</h4>
+              <p>An ability lists Name, Type, Tempo, Target, Range, Domain Requirement, Essence Cost, Catalyst Cost, timing and effects. There are currently no ability tiers. Damage specifies both Domain and amount.</p>
+            </section>
+
+            <section class="rule" id="s7-2">
+              <h4>7.2 Action and Reaction Abilities</h4>
+              <p><strong>Actions</strong> are declared by the acting character. <strong>Reactions</strong> are declared in response to an Action and resolve according to their printed effects and requirements.</p>
+              <p>Reaction Tempo is specified by the ability. An Exhausted character may only use Defensive Reactions against Actions targeting it. Incapacitated characters cannot react.</p>
+            </section>
+
+            <section class="rule" id="s7-3">
+              <h4>7.3 Attack, Defense, and Tactical Classifications</h4>
+              <p>Ability classifications under consideration are Offensive, Defensive, Motion and Tactical. Each ability specifies its classification; an Item/Tactical option may have its own timing.</p>
+              <p class="dev-notice"><strong>In development:</strong> Final ability classifications.</p>
+            </section>
+
+            <section class="rule" id="s7-4">
+              <h4>7.4 Requirements and Costs</h4>
+              <p>Domain values determine eligibility and are never spent. Essence costs are paid with individual Essence draws and Catalyst costs with eligible Catalyst Cards. Tempo is a separate printed cost.</p>
+              <p>An ability requiring unavailable Essence cannot be performed. Players cannot draw extra Essence that will not be used.</p>
+            </section>
+
+            <section class="rule" id="s7-5">
+              <h4>7.5 Declaring and Targeting</h4>
+              <ol>
+                <li>The Active player selects a non-Exhausted character, declares an ability, selects a target and pays the Essence and Catalyst costs.</li>
+                <li>Active Immediately effects then resolve.</li>
+                <li>The defender may declare a legal Reaction, choose target and pay costs.</li>
+                <li>Reaction Immediately effects resolve.</li>
+                <li>Remaining effects resolve by printed timing, Active first in a shared ordinary window.</li>
+              </ol>
+              <p>Explicit interrupts trigger before other effects continue.</p>
+              <p>Interrupts resolve at their printed timing. If a Reaction or interrupt invalidates a target, a legal replacement may be selected; otherwise target-dependent effects fail and independent effects continue. Paid costs are not refunded (see <a href="#s7-9">7.9</a>).</p>
+            </section>
+
+            <section class="rule" id="s7-6">
+              <h4>7.6 Drawing Essence and Committing Catalyst Cards</h4>
+              <p>The acting player draws eligible Essence and commits Catalyst Cards to pay the declared ability cost. Each eligible terrain feature within one hex can supply one Essence per Action/Reaction. Environment cards flip after their face-up Essence is used to pay a cost.</p>
+              <p><strong>Terrain draw limit:</strong> one Essence per eligible feature per Action or Reaction; map terrain has ten total draws and created terrain five. Up to two matching Reserve Essences may be spent. Environment draws are optional and have no numerical limit. Draw only Essence needed for the cost.</p>
+              <p>Used Catalyst Cards are discarded after the Action or Reaction resolves or ends. Paid costs are not refunded when a target becomes invalid.</p>
+            </section>
+
+            <section class="rule" id="s7-7">
+              <h4>7.7 Manifestation and Effect Resolution</h4>
+              <p>Resolve Immediately effects in the prescribed early window, followed by remaining effects in their specified timing windows. In the same ordinary timing window, Active-player effects resolve before Defending-player effects. Explicit interrupts resolve when their trigger conditions are met, before other effects continue.</p>
+              <p>At the same timing, the Active player resolves first. Each player chooses the order of their own simultaneous effects. Newly triggered interrupts resolve at their specified timing before the next pending effect.</p>
+            </section>
+
+            <section class="rule" id="s7-8">
+              <h4>7.8 Timing Keywords: Immediately, Before, When, After</h4>
+              <p><strong>Immediately</strong> effects from the active ability resolve after the active player pays costs and before the defending player declares a Reaction. The defending Reaction’s Immediately effects resolve after its costs are paid. Other effects follow <strong>Before</strong>, <strong>When</strong> and <strong>After</strong> wording, with Active-player effects first in a shared ordinary window.</p>
+              <p>An interrupt resolves before the interrupted effect continues. An Immediately effect can normally be interrupted only before it resolves. An ability may explicitly permit retroactive cancellation.</p>
+            </section>
+
+            <section class="rule" id="s7-9">
+              <h4>7.9 Timing Priority and Interrupts</h4>
+              <p>Timing order:</p>
+              <ol>
+                <li>Active declaration, target and payment</li>
+                <li>Active Immediately</li>
+                <li>Defending declaration, target and payment</li>
+                <li>Defending Immediately</li>
+                <li>Remaining effects by printed timing</li>
+              </ol>
+              <p>At the same timing, the Active player goes first; each player orders their own simultaneous effects. Newly triggered interrupts resolve before continuation.</p>
+              <p>If a Reaction or interrupt invalidates a target, a legal replacement may be selected. If no replacement is selected, only target-dependent effects fail; independent effects continue. <strong>Costs are not refunded.</strong></p>
+              <p class="dev-notice"><strong>In development:</strong> The timing and controller of replacement target selection.</p>
+            </section>
+          </section>
+
+          <!-- ===== CHAPTER 8 ===== -->
+          <section class="chapter" id="ch-8">
+            <h3>8. Tempo and Activation</h3>
+
+            <section class="rule" id="s8-1">
+              <h4>8.1 Tempo Track Setup</h4>
+              <p>Each player has an independent Tempo track. During setup each player places three character markers in distinct positions among the <strong>first five spaces</strong>.</p>
+            </section>
+
+            <section class="rule" id="s8-2">
+              <h4>8.2 Activation Order</h4>
+              <p>Players alternate activations. On their activation, a player may select any of their non-Exhausted characters; there is no requirement to activate the rearmost marker. Incapacitated characters cannot activate. If all characters controlled by a player are Exhausted or Incapacitated, <strong>the game ends</strong>.</p>
+              <p>A character enters Exhaustion when a Domain reaches zero or when its Tempo marker is five or more spaces ahead of its nearest ally. See <a href="#s8-5">8.5</a> for recovery.</p>
+            </section>
+
+            <section class="rule" id="s8-3">
+              <h4>8.3 Tempo Costs</h4>
+              <p>Each Action or Reaction specifies its Tempo cost. Advance the character’s marker by the specified cost after resolution.</p>
+              <p>An Action or Reaction that ends early counts as completed; apply its Tempo cost at completion as normal.</p>
+            </section>
+
+            <section class="rule" id="s8-4">
+              <h4>8.4 Advancing Character Markers</h4>
+              <p>Each character advances on its owner’s track independently. Tempo positions determine readiness and exhaustion relative to allied markers.</p>
+            </section>
+
+            <section class="rule" id="s8-5">
+              <h4>8.5 Exhaustion</h4>
+              <p>A character becomes <strong>Exhausted</strong> when five or more spaces ahead of its nearest ally or when a Domain reaches zero. Exhaustion clears when another allied character is less than five spaces behind on the Tempo Track. Exhausted characters cannot take Actions.</p>
+              <p>An Exhausted character may take only Defensive Reactions against Actions targeting it. Once Exhausted, normal Exhaustion rules apply, including when a Domain remains at zero.</p>
+              <div class="rule-example" role="note">
+                <p class="example-label">Example: Tempo</p>
+                <p>A marker five spaces ahead of its closest ally becomes Exhausted. When an ally is less than five spaces behind, normal Exhaustion clearance applies.</p>
+              </div>
+              <p class="dev-notice"><strong>In development:</strong> The precise Tempo marker adjustment, if any, when a Domain reaches zero.</p>
+            </section>
+
+            <section class="rule" id="s8-6">
+              <h4>8.6 Continuous Activations</h4>
+              <p>Play proceeds through continuous alternating activations, <strong>without formal rounds</strong>. An activation ends when all effects of its Action and Reaction have resolved; the next activation then begins.</p>
+            </section>
+          </section>
+
+          <!-- ===== CHAPTER 9 ===== -->
+          <section class="chapter" id="ch-9">
+            <h3>9. Combat and Reactions</h3>
+
+            <section class="rule" id="s9-1">
+              <h4>9.1 Attack Resolution</h4>
+              <p>The Active player selects a non-Exhausted character, declares the attack, selects an eligible target and pays costs. Active Immediately effects then resolve. The Defender may declare and pay for a qualifying Reaction, after which its Immediately effects resolve. Other effects follow timing wording, Active player first in a shared ordinary window.</p>
+              <p><strong>All attacks permit a Reaction</strong> unless explicitly stated otherwise. If a Reaction invalidates a target, apply the replacement and continuation rules in <a href="#s7-9">7.9</a>. Paid costs are not refunded.</p>
+            </section>
+
+            <section class="rule" id="s9-2">
+              <h4>9.2 Defensive Reactions</h4>
+              <p>An Exhausted character may only make a Defensive Reaction when it is the target of the Action. Incapacitated characters cannot react. A Reaction is declared and paid after the active ability’s Immediately effects, unless a printed interrupt explicitly overrides the sequence.</p>
+              <p>There are <strong>no default Defend or Dodge effects</strong>. Characters use only the Passive Abilities and abilities listed on their character cards. Reaction Tempo is specified by the ability.</p>
+            </section>
+
+            <section class="rule" id="s9-3">
+              <h4>9.3 Offensive and Tactical Reactions</h4>
+              <p>Reactions may modify a pending action where a specific ability allows them.</p>
+              <p>Offensive and Tactical Reactions are legal in response to an Action, subject to their requirements and the restrictions on Exhausted and Incapacitated characters.</p>
+            </section>
+
+            <section class="rule" id="s9-4">
+              <h4>9.4 Damage by Domain</h4>
+              <p>Apply each damage entry to its named Domain; e.g., 3 Body and 1 Spirit are two distinct damage entries.</p>
+              <p>Check zero-Domain thresholds after resolution of the entire ability. <strong>One Domain</strong> reaching zero causes <strong>Exhaustion</strong>; <strong>two or more</strong> cause <strong>Incapacitation</strong>. Excess damage does not spill over. Recovery follows <a href="#s3-7">3.7</a> and <a href="#s8-5">8.5</a>.</p>
+            </section>
+
+            <section class="rule" id="s9-5">
+              <h4>9.5 Damage Redirection</h4>
+              <p>An ability may redirect damage between Domains or characters only when explicitly stated.</p>
+              <p>Redirected damage is not a new damage event, but may trigger effects that respond to damage to the newly affected Domain.</p>
+            </section>
+
+            <section class="rule" id="s9-6">
+              <h4>9.6 Interrupts and Timing Priority</h4>
+              <p>An interrupt resolves at its stated timing before the interrupted sequence continues. At the same timing, the Active player resolves first; each player orders their own simultaneous interrupts.</p>
+              <p>If an interrupt triggers another interrupt, resolve the new interrupt at its specified timing before continuing with pending effects.</p>
+            </section>
+
+            <section class="rule" id="s9-7">
+              <h4>9.7 Simultaneous Effects and Edge Cases</h4>
+              <p>At the same timing, the Active player resolves first; each player orders their own simultaneous effects. For an effect damaging multiple Domains or targets, check Incapacitation after the entire effect rather than after each damage entry. Zero-Domain checks occur at the end of the ability.</p>
+              <p>An Incapacitated character remains in its hex but does not obstruct movement or LoS. It may contest or score objectives if a scenario or ability permits it.</p>
+            </section>
+          </section>
+
+          <!-- ===== CHAPTER 10 ===== -->
+          <section class="chapter" id="ch-10">
+            <h3>10. Conditions and Status Effects</h3>
+
+            <section class="rule" id="s10-1">
+              <h4>10.1 Conditions Overview</h4>
+              <p><strong>Conditions</strong> are ongoing beneficial or harmful effects attached to characters or hexes and tracked with markers.</p>
+            </section>
+
+            <section class="rule" id="s10-2">
+              <h4>10.2 Beneficial and Harmful Conditions</h4>
+              <p>Conditions may be beneficial or harmful. Opposing Conditions can coexist.</p>
+            </section>
+
+            <section class="rule" id="s10-3">
+              <h4>10.3 Applying and Removing Conditions</h4>
+              <p>An ability or terrain effect states which condition it applies or removes and when it resolves.</p>
+              <p>Opposing Conditions coexist rather than canceling each other.</p>
+            </section>
+
+            <section class="rule" id="s10-4">
+              <h4>10.4 Duration and Expiration</h4>
+              <p>Duration is specified by the condition or source effect.</p>
+              <p>A turn or activation ends when all effects of the Action and Reaction have resolved. The next turn or activation then begins.</p>
+            </section>
+
+            <section class="rule" id="s10-5">
+              <h4>10.5 Stacking and Reapplication</h4>
+              <p>A Condition stacks <strong>only if its rules explicitly permit stacking</strong>. Reapplication does not refresh or replace an existing Condition.</p>
+            </section>
+
+            <section class="rule" id="s10-6">
+              <h4>10.6 Terrain and Aura Effects</h4>
+              <p>A terrain feature or aura may apply effects when a character enters, exits, occupies or remains in an affected hex.</p>
+              <p>Forced movement triggers the same terrain and aura effects as voluntary movement unless an effect explicitly overrides them.</p>
+              <p>When an effect states that a character <strong>gains</strong> a Condition, it remains applied until removed according to its rules. When an effect states that a character <strong>suffers from</strong> a Condition within an Area of Effect, the Condition ends when the character leaves that area.</p>
+            </section>
+
+            <section class="rule" id="s10-7">
+              <h4>10.7 Condition Reference</h4>
+              <p class="dev-notice"><strong>In development:</strong> The initial Condition list and numerical effects.</p>
+            </section>
+          </section>
+
+          <!-- ===== CHAPTER 11 ===== -->
+          <section class="chapter" id="ch-11">
+            <h3>11. Victory Conditions</h3>
+
+            <section class="rule" id="s11-1">
+              <h4>11.1 Scenario Objectives</h4>
+              <p>Scenarios determine the objectives that players contest; examples considered include capture, escort/kidnap and recovery.</p>
+              <p>Scenario rules specify setup, objective timing and scoring.</p>
+              <p class="dev-notice"><strong>In development:</strong> Scenario deployment, scoring, tie-breaks and hidden agendas.</p>
+            </section>
+
+            <section class="rule" id="s11-2">
+              <h4>11.2 Winning and Losing</h4>
+              <p>Victory follows the scenario’s win conditions. The game also ends if all characters controlled by a player are Exhausted or Incapacitated.</p>
+              <p class="dev-notice"><strong>In development:</strong> The winner determination when the game ends because all characters of a player are Exhausted or Incapacitated.</p>
+            </section>
+
+            <section class="rule" id="s11-3">
+              <h4>11.3 Incapacitation and Elimination</h4>
+              <p>An Incapacitated character remains on its hex, which can be crossed or occupied, and does not block LoS. Recovery follows <a href="#s3-7">3.7</a>. It may contest or score objectives if the scenario or an ability permits it.</p>
+              <p>Scenario elimination scoring depends on incapacitation and victory criteria.</p>
+            </section>
+
+            <section class="rule" id="s11-4">
+              <h4>11.4 Ties and Simultaneous Victory</h4>
+              <p class="dev-notice"><strong>In development:</strong> Tie-break and simultaneous-victory rules.</p>
+            </section>
+
+            <section class="rule" id="s11-5">
+              <h4>11.5 Demo Scenario</h4>
+              <p class="dev-notice"><strong>In development:</strong> The demonstration scenario.</p>
+            </section>
+          </section>
+
+          <!-- ===== CHAPTER 12 ===== -->
+          <section class="chapter" id="ch-12">
+            <h3>12. Reference Tables and Glossary</h3>
+
+            <section class="rule" id="s12-1">
+              <h4>12.1 Essence Reference</h4>
+              <p>Elemental | Cyclical | Celestial | Equilibrium | Psychic | Aetheric. See <a href="#s5-1">5.1</a> for what each represents.</p>
+            </section>
+
+            <section class="rule" id="s12-2">
+              <h4>12.2 Catalyst Reference</h4>
+              <p>Force | Motion | Time | Magnitude | Shape | Flex. See <a href="#s6-2">6.2</a> for what each represents.</p>
+              <p>The six Catalyst names are settled.</p>
+              <p class="dev-notice"><strong>In development:</strong> Their detailed mechanical definitions and symbols.</p>
+            </section>
+
+            <section class="rule" id="s12-3">
+              <h4>12.3 Timing Keyword Reference</h4>
+              <table class="rules-table">
+                <caption>Timing keywords (see <a href="#s7-8">7.8</a>)</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Keyword</th>
+                    <th scope="col">Timing</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Immediately</th><td>Active effects after active payment and before defender declaration; defender Immediately after reaction payment.</td></tr>
+                  <tr><th scope="row">Before</th><td>Precedes the named event.</td></tr>
+                  <tr><th scope="row">When</th><td>Interrupts at the named event.</td></tr>
+                  <tr><th scope="row">After</th><td>Follows the named event.</td></tr>
+                </tbody>
+              </table>
+              <p>Active player resolves first within a shared ordinary timing window; explicit interrupts resolve at trigger.</p>
+              <p>At the same timing, the Active player goes first; each player orders their own simultaneous effects. Newly triggered interrupts resolve before pending effects continue.</p>
+            </section>
+
+            <section class="rule" id="s12-4">
+              <h4>12.4 Action and Reaction Sequence</h4>
+              <ol>
+                <li>Active selects character</li>
+                <li>Declares ability</li>
+                <li>Selects target</li>
+                <li>Pays Essence and Catalyst costs</li>
+                <li>Active Immediately</li>
+                <li>Defender declares Reaction, target, and pays</li>
+                <li>Defender Immediately</li>
+                <li>Other effects by timing, Active first in shared window</li>
+              </ol>
+              <p>An explicit interrupt resolves at its trigger before other effects continue.</p>
+              <p>Domain Requirements are checked at declaration only. Invalid targets may be replaced with legal targets; otherwise target-dependent effects fail and independent effects continue. Paid costs are not refunded. Early termination counts as completion for Tempo costs.</p>
+            </section>
+
+            <section class="rule" id="s12-5">
+              <h4>12.5 Conditions Reference</h4>
+              <p>Conditions coexist; stacking requires explicit permission. Reapplication does not refresh or replace a Condition. See <a href="#ch-10">Chapter 10</a> for application and expiration rules.</p>
+              <p class="dev-notice"><strong>In development:</strong> The initial Condition list.</p>
+            </section>
+
+            <section class="rule" id="s12-6">
+              <h4>12.6 Terrain Reference</h4>
+              <p>Terrain is map-specific. Forest Clearing example: Flower Patch, Fungal Colony, Hollow Tree, Vine Cluster.</p>
+              <table class="rules-table">
+                <caption>Map terrain and created terrain</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Property</th>
+                    <th scope="col">Map terrain</th>
+                    <th scope="col">Created terrain</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Essence types</th><td>Three</td><td>Two</td></tr>
+                  <tr><th scope="row">Total draws</th><td>Ten</td><td>Five</td></tr>
+                  <tr><th scope="row">Access range</th><td>One hex</td><td>One hex</td></tr>
+                  <tr><th scope="row">Draw limit</th><td>One draw per feature per Action/Reaction</td><td>One draw per feature per Action/Reaction</td></tr>
+                </tbody>
+              </table>
+              <ul>
+                <li>Depleted terrain remains physical terrain.</li>
+                <li>Normal hex entry costs one movement point; Severe Terrain costs two.</li>
+                <li>Terrain draws used to fill Reserves also consume the allowance.</li>
+                <li>Effects that ignore terrain ignore all terrain traits.</li>
+              </ul>
+            </section>
+
+            <section class="rule" id="s12-7">
+              <h4>12.7 Glossary of Game Terms</h4>
+              <dl class="glossary">
+                <dt>Ability</dt>
+                <dd>Named effect with requirements, costs and timing.</dd>
+                <dt>Catalyst</dt>
+                <dd>Force, Motion, Time, Magnitude, Shape or Flex.</dd>
+                <dt>Domain</dt>
+                <dd>Mind, Body or Spirit.</dd>
+                <dt>Environment</dt>
+                <dd>15 shared double-sided Essence cards.</dd>
+                <dt>Essence</dt>
+                <dd>One of six reality aspects.</dd>
+                <dt>LoS</dt>
+                <dd>Center-to-center visibility.</dd>
+                <dt>Manifestation</dt>
+                <dd>Ability once costs are paid.</dd>
+                <dt>Reserve</dt>
+                <dd>Two spaces for terrain Essence.</dd>
+                <dt>Severe Terrain</dt>
+                <dd>Costs two movement points to enter.</dd>
+                <dt>Tempo</dt>
+                <dd>Character activation track.</dd>
+              </dl>
+            </section>
+
+            <section class="rule" id="s12-8">
+              <h4>12.8 Playtest Notes</h4>
+              <p>Remaining development items are listed in <a href="#appendix-b">Appendix B</a>.</p>
+            </section>
+          </section>
+
+          <!-- ===== APPENDIX A: the examples now appear inside the rules they illustrate ===== -->
+          <section class="chapter" id="appendix-a">
+            <h3>Appendix A. Practical Examples</h3>
+            <div class="rule">
+              <p>The practical examples appear alongside the rules they illustrate:</p>
+              <ul>
+                <li><a href="#s3-4">Domain Requirement (3.4)</a></li>
+                <li><a href="#s4-4">Line of Sight (4.4)</a></li>
+                <li><a href="#s4-7">Movement (4.7)</a></li>
+                <li><a href="#s8-5">Tempo (8.5)</a></li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ===== APPENDIX B ===== -->
+          <section class="chapter" id="appendix-b">
+            <h3>Appendix B. Content in Development</h3>
+
+            <section class="rule" id="appendix-b-1">
+              <h4>Scenario and Component Development</h4>
+              <ul>
+                <li>Scenario deployment, scoring, tie-breaks, hidden agendas and the demonstration scenario</li>
+                <li>Map-specific terrain properties and created-terrain duration</li>
+                <li>The 12 Item/Tactical effects and their distribution</li>
+                <li>Catalyst mechanical definitions and icons</li>
+                <li>Final ability classifications</li>
+                <li>Initial Condition names and numerical effects</li>
+              </ul>
+            </section>
+
+            <section class="rule" id="appendix-b-2">
+              <h4>Remaining Rule Details</h4>
+              <ul>
+                <li>The precise Tempo marker adjustment, if any, when a Domain reaches zero</li>
+                <li>The timing and controller of replacement target selection</li>
+                <li>Placement if no adjacent legal hex exists after interrupted movement</li>
+                <li>The winner determination when the game ends because all characters of a player are Exhausted or Incapacitated</li>
+              </ul>
+            </section>
+          </section>
+
+        </article>
+      </div>
+
+      <!-- Back to Top: appears after scrolling down (see js/rules.js) -->
+      <a href="#top" class="back-to-top">Back to top</a>
+
+    </main>
+
+    <!-- ===== FOOTER: copyright, links, and contact ===== -->
+    <footer>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="world.html">World of Essetara</a></li>
+        <li><a href="factions.html">Factions &amp; Characters</a></li>
+        <li><a href="rules.html">Rules</a></li>
+        <li><a href="game.html">Game</a></li>
+      </ul>
+
+      <!-- Replace YOUR-EMAIL@example.com with your real contact email (in both places below) -->
+      <p>Contact: <a href="mailto:YOUR-EMAIL@example.com">YOUR-EMAIL@example.com</a></p>
+
+      <p>&copy; 2026 Essetara: Manifest. All rights reserved.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
