@@ -167,7 +167,8 @@ main {
   border-radius: 6px;
 }
 
-#welcome h2 {
+#welcome h2,
+#world-hero h2 {
   font-size: 2em;
 }
 
@@ -175,8 +176,10 @@ main {
    A dark, mostly-text panel. The top gradient is very dark so the long
    text stays easy to read. Add images/lost-hour.jpg later if you want
    artwork behind it; until then the purple glow gradient shows. */
-/* Shared dark panel: also used by the Feedback section on game.html */
+/* Shared dark panel: also used by the World page's Lost Hour story
+   and the Feedback section on game.html */
 #lost-hour,
+#world-lost-hour,
 #feedback {
   margin-bottom: 2em;
   padding: 2em 1.25em;
@@ -199,7 +202,8 @@ main {
   margin: 0 auto;
 }
 
-#lost-hour h2 {
+#lost-hour h2,
+#world-lost-hour h2 {
   font-size: 2em;
   text-align: center;
 }
@@ -462,6 +466,115 @@ main {
 }
 
 /* =========================================================
+   WORLD OF ESSETARA PAGE (world.html)
+   ========================================================= */
+
+/* ----- A. Page introduction: uses the .hero layout from the Home page ----- */
+/* IMAGE: add images/world-hero.jpg for the World hero artwork */
+#world-hero {
+  min-height: 420px;
+  background-image: linear-gradient(rgba(17, 21, 26, 0.2), rgba(17, 21, 26, 0.9)),
+                    url(../images/world-hero.jpg),
+                    linear-gradient(135deg, #2A2550, #11151A 60%, #2E3558);
+}
+
+/* ----- B and D. Image-and-text rows ----- */
+.world-chapter {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  margin-bottom: 2em;
+  padding: 1.25em;
+  background-color: #151A24;
+  border: 1px solid #625A9B;
+  border-radius: 6px;
+}
+
+/* Landscape images keep a 3:2 shape and crop to fill it */
+.world-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 1px solid #C9AE63;
+  border-radius: 4px;
+}
+
+.world-text h3 {
+  margin: 1em 0 0.4em 0;
+  color: #C9AE63;
+}
+
+/* The first heading in each text block needs no space above it */
+.world-text h2 + h3,
+.world-text h3:first-child {
+  margin-top: 0;
+}
+
+.world-after h2 {
+  text-align: center;
+}
+
+/* ----- C. The Lost Hour: prominent artwork behind a dark overlay.
+   The panel box comes from the shared #lost-hour rule above, and the
+   text styles (.story-question, .story-ending) are reused from Home. ----- */
+/* IMAGE: add images/world-lost-hour.jpg (darkness, a blinding flash, or a frozen world) */
+#world-lost-hour {
+  padding: 3em 1em;
+  background-image: linear-gradient(rgba(17, 21, 26, 0.55), rgba(17, 21, 26, 0.85)),
+                    url(../images/world-lost-hour.jpg),
+                    radial-gradient(ellipse at top, #E7E9E6, #625A9B 15%, #11151A 60%);
+  background-size: cover;
+  background-position: center;
+  border-color: #C9AE63;
+}
+
+/* A second dark layer right behind the words keeps the long story readable */
+#world-lost-hour .story-text {
+  padding: 1.5em;
+  background-color: rgba(17, 21, 26, 0.8);
+  border: 1px solid rgba(201, 174, 99, 0.4);
+  border-radius: 6px;
+}
+
+/* ----- E. Explore the Sites of Wonder ----- */
+#sites {
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.site-card {
+  margin-bottom: 1.25em;
+  background-color: #1B2030;
+  border: 1px solid #625A9B;
+  border-radius: 6px;
+  text-align: left;
+}
+
+.site-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-bottom: 1px solid #C9AE63;
+  border-radius: 6px 6px 0 0;
+}
+
+.site-info {
+  padding: 1em;
+}
+
+.site-info h3 {
+  margin: 0 0 0.4em 0;
+  color: #C9AE63;
+}
+
+.site-info p {
+  margin: 0;
+  font-size: 0.95em;
+}
+
+/* =========================================================
    GAME PAGE (game.html)
    ========================================================= */
 
@@ -658,6 +771,37 @@ footer a:focus {
     align-items: flex-start;
   }
 
+  /* World page: image beside the text; the "reverse" row puts it on the right */
+  .world-chapter {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5em;
+  }
+
+  .world-chapter-reverse {
+    flex-direction: row-reverse;
+  }
+
+  .world-image {
+    width: 40%;
+    flex-shrink: 0;
+  }
+
+  #world-lost-hour {
+    padding: 4em 2em;
+  }
+
+  /* World page: the three Sites of Wonder sit side by side */
+  .site-row {
+    display: flex;
+    gap: 1.25em;
+  }
+
+  .site-card {
+    flex: 1;
+    margin-bottom: 0;
+  }
+
   /* Game page feedback: Yes/No and the email field sit side by side */
   .contact-row {
     display: flex;
@@ -693,7 +837,8 @@ footer a:focus {
     min-height: 380px;
   }
 
-  #welcome h2 {
+  #welcome h2,
+  #world-hero h2 {
     font-size: 2.6em;
   }
 
