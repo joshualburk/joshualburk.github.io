@@ -175,17 +175,22 @@ main {
    A dark, mostly-text panel. The top gradient is very dark so the long
    text stays easy to read. Add images/lost-hour.jpg later if you want
    artwork behind it; until then the purple glow gradient shows. */
-#lost-hour {
+/* Shared dark panel: also used by the Feedback section on game.html */
+#lost-hour,
+#feedback {
   margin-bottom: 2em;
   padding: 2em 1.25em;
   background-color: #1B2030;
+  border: 1px solid #4E5A8A;
+  border-radius: 6px;
+}
+
+#lost-hour {
   background-image: linear-gradient(rgba(17, 21, 26, 0.8), rgba(17, 21, 26, 0.95)),
                     url(../images/lost-hour.jpg),
                     radial-gradient(circle at top, #3A3470, #11151A 70%);
   background-size: cover;
   background-position: center;
-  border: 1px solid #4E5A8A;
-  border-radius: 6px;
 }
 
 /* Keeps the lines a comfortable reading length on wide screens */
@@ -489,6 +494,80 @@ main {
   text-align: center;
 }
 
+/* ----- Feedback section (the panel itself is styled with #lost-hour) ----- */
+#feedback h2 {
+  text-align: center;
+}
+
+/* Inner boxes: the download steps and the form preview */
+.feedback-box {
+  margin-top: 1.5em;
+  padding: 1.5em;
+  background-color: #151A24;
+  border: 1px solid #625A9B;
+  border-radius: 6px;
+}
+
+.feedback-box h3 {
+  margin-top: 0;
+  color: #C9AE63;
+}
+
+.feedback-steps li {
+  margin-bottom: 0.4em;
+}
+
+.preview-note {
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+/* The form stacks each label above its field */
+#feedback form {
+  display: flex;
+  flex-direction: column;
+}
+
+#feedback label,
+.form-question {
+  margin: 1em 0 0.4em 0;
+  color: #E7E9E6;
+}
+
+#feedback input[type="text"],
+#feedback input[type="email"],
+#feedback textarea {
+  width: 100%;
+  padding: 0.6em;
+  background-color: #11151A;
+  color: #E7E9E6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  border: 1px solid #4E5A8A;
+  border-radius: 4px;
+}
+
+/* Gold outline shows which field the tester is typing in */
+#feedback input:focus,
+#feedback textarea:focus {
+  border-color: #C9AE63;
+  outline: none;
+}
+
+/* Question 2: Yes/No buttons with the email field beside them */
+#feedback .contact-choice label {
+  margin: 0 1.5em 0 0.4em;
+}
+
+/* Gold radio buttons */
+.contact-choice input {
+  accent-color: #C9AE63;
+}
+
+.contact-email label {
+  display: block;
+}
+
 /* ===== FOOTER ===== */
 footer {
   padding: 2em 1em;
@@ -577,6 +656,26 @@ footer a:focus {
   .character-card {
     flex-direction: row;
     align-items: flex-start;
+  }
+
+  /* Game page feedback: Yes/No and the email field sit side by side */
+  .contact-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 1.5em;
+  }
+
+  .contact-choice {
+    padding-bottom: 0.6em;
+  }
+
+  .contact-email {
+    flex: 1;
+  }
+
+  #feedback .contact-email label {
+    margin-top: 0;
   }
 }
 

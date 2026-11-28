@@ -18,10 +18,10 @@
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
+          <li><a href="world.html">World of Essetara</a></li>
           <li><a href="factions.html">Factions &amp; Characters</a></li>
           <li><a href="rules.html">Rules</a></li>
           <li><a href="game.html" class="current">Game</a></li>
-          <li><a href="feedback.html">Feedback</a></li>
         </ul>
       </nav>
     </header>
@@ -47,7 +47,70 @@
       <section class="game-notes">
         <p>The demo can take a few moments to load. It runs in any current browser (Chrome, Edge, Firefox, or Safari) and plays best on a computer with a mouse.</p>
         <a href="demo/index.html" class="button" target="_blank">Open in Full Window</a>
-        <a href="feedback.html" class="button button-outline">Give Feedback</a>
+        <a href="#feedback" class="button button-outline">Give Feedback</a>
+      </section>
+
+      <!-- ===== FEEDBACK: replaces the old standalone Feedback page.
+           Keep id="feedback" so the Home page's Give Feedback button
+           (game.html#feedback) jumps straight here. ===== -->
+      <section id="feedback">
+        <h2>Help Shape Essetara</h2>
+        <p>Essetara: Manifest is currently in alpha development. Your feedback will help identify unclear rules, improve gameplay mechanics, and guide future changes. After trying the game, please complete the feedback form and share your experience.</p>
+
+        <!-- ----- How to send feedback: download, complete, email ----- -->
+        <div class="feedback-box">
+          <h3>Download the Feedback Form</h3>
+
+          <!-- PDF: save the form as downloads/essetara-feedback-form.pdf -->
+          <a href="downloads/essetara-feedback-form.pdf" class="button" download>Download Feedback Form (PDF)</a>
+
+          <ol class="feedback-steps">
+            <li>Download the feedback form.</li>
+            <li>Complete the form.</li>
+            <li>Email the completed form to the developer.</li>
+          </ol>
+
+          <!-- Replace YOUR-EMAIL@example.com with your real email address -->
+          <a href="mailto:YOUR-EMAIL@example.com" class="button button-outline">Email Completed Feedback</a>
+        </div>
+
+        <!-- ----- On-page preview of the form's questions.
+             There is no Submit button: this website does not send or
+             store answers. Testers use the downloadable PDF instead. ----- -->
+        <article class="feedback-box">
+          <h3>Essetara: Manifest &ndash; Alpha Playtest Feedback</h3>
+          <p class="preview-note">Form preview: these are the questions in the downloadable form. Anything typed here is not sent or saved, so please use the PDF above.</p>
+
+          <form>
+            <label for="tester-name">1. Name or Username (Optional)</label>
+            <input type="text" id="tester-name" name="tester-name">
+
+            <p class="form-question">2. Would you like to be contacted about future playtesting?</p>
+            <div class="contact-row">
+              <div class="contact-choice">
+                <input type="radio" id="contact-yes" name="contact" value="yes">
+                <label for="contact-yes">Yes</label>
+
+                <input type="radio" id="contact-no" name="contact" value="no">
+                <label for="contact-no">No</label>
+              </div>
+
+              <div class="contact-email">
+                <label for="tester-email">Contact Information (Email, Optional)</label>
+                <input type="email" id="tester-email" name="tester-email">
+              </div>
+            </div>
+
+            <label for="favorite-mechanic">3. What was your favorite game mechanic, and why?</label>
+            <textarea id="favorite-mechanic" name="favorite-mechanic" rows="4" cols="40"></textarea>
+
+            <label for="unclear-rules">4. Which rules, if any, were confusing or unclear? Please explain.</label>
+            <textarea id="unclear-rules" name="unclear-rules" rows="4" cols="40"></textarea>
+
+            <label for="suggestions">5. What suggestions do you have for improving gameplay?</label>
+            <textarea id="suggestions" name="suggestions" rows="4" cols="40"></textarea>
+          </form>
+        </article>
       </section>
 
     </main>
@@ -56,10 +119,10 @@
     <footer>
       <ul class="footer-links">
         <li><a href="index.html">Home</a></li>
+        <li><a href="world.html">World of Essetara</a></li>
         <li><a href="factions.html">Factions &amp; Characters</a></li>
         <li><a href="rules.html">Rules</a></li>
         <li><a href="game.html">Game</a></li>
-        <li><a href="feedback.html">Feedback</a></li>
       </ul>
 
       <!-- Replace YOUR-EMAIL@example.com with your real contact email (in both places below) -->
